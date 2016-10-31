@@ -6,10 +6,10 @@ sudo apt-get -y install git
 
 #lamp stack
 sudo apt-get install -y apache2
-sudo apt-get install -y mysql-server libapache2-mod-auth-mysql php5-mysql
+sudo apt-get install -y mysql-server libapache2-mod-auth-mysql php-mysql
 sudo mysql_install_db
 
-sudo apt-get install -y php5 libapache2-mod-php5 php5-mcrypt
+sudo apt-get install -y php7.0 libapache2-mod-php php-mcrypt
 
 #composer for laravel
 sudo apt-get install -y curl
@@ -17,13 +17,10 @@ sudo sh -c "curl -sS https://getcomposer.org/installer | php -- --install-dir=/u
 
 #sudo nano /etc/apache2/mods-enabled/dir.conf
 
-sudo apt-get install -y php5-sqlite
-
-#jsapi : icon generator 
-sudo apt-get install -y php5-imagick
+sudo apt-get install -y php-sqlite
 
 #for laravel
-sudo php5enmod mcrypt
+sudo php7enmod mcrypt
 sudo a2enmod rewrite
 sudo service apache2 restart
 
