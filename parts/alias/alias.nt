@@ -1,0 +1,57 @@
+#keep alive method : to make box accessible
+alias keepalive='~/portable-install/parts/nitrous/keepalive.sh'
+alias ka='keepalive'
+
+#artisan everywhere
+alias san='~/portable-install/parts/artisan/nitrosan.sh'
+
+#change apache details : replaces orig pache with edit
+alias pache='nano /home/action/.parts/etc/apache2/httpd.conf'
+
+#cat hosts in place of edit
+alias hosts='cat /etc/hosts'
+
+#commit as nitro
+alias ham='hg commit -u root -m "nitro commit $(date)"'
+
+#wipe
+alias wipe='rm -fR ~/workspace/*'
+
+#deploy alias
+alias deploy_alias='cp ~/.alias ~/portable-install/parts/alias/alias.nt'
+alias da='deploy_alias'
+alias dp='da'
+
+#repache from nitros pache
+alias repache='parts restart apache2'
+
+#standart
+alias c7='chmod -fR 777 '
+alias cl='clear'
+alias lah='ls -lah'
+alias composer='php /home/action/composer.phar'
+alias cup='composer update'
+# From http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
+export MARKPATH=$HOME/.marks
+function jump {
+    cd -P $MARKPATH/$1 2> /dev/null || echo "No such mark: $1"
+}
+function mark {
+    mkdir -p $MARKPATH; ln -s $(pwd) $MARKPATH/$1
+}
+function unmark {
+    rm -i $MARKPATH/$1
+}
+function marks {
+    ls -l $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- && echo
+}
+function _jump {
+      local cur=${COMP_WORDS[COMP_CWORD]}
+      local marks=$(find $MARKPATH -type l | awk -F '/' '{print $NF}')
+      COMPREPLY=($(compgen -W '${marks[@]}' -- "$cur"))
+      return 0
+}
+complete -o default -o nospace -F _jump jump
+
+alias realias='unalias -a;source ~/.alias'
+alias ali='nano ~/.alias;realias;'

@@ -1,0 +1,20 @@
+{
+	"folders":
+	[
+		{
+			"path": "INC_PATH"
+		}
+	],
+	"settings":
+	{
+		"build_on_save": RSYNC_STATUS,
+		"from_to_onsave":
+		{
+			"first":
+			{
+				"from": "INC_PATH",
+				"to": "RSYNC_PATH"
+			}
+		}
+	}
+}
