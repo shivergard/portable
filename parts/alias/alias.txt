@@ -4,11 +4,24 @@ alias deploy_alias='cp ~/.alias /opt/apps/portable-install/parts/alias/alias.txt
 alias hosts='sudo nano /etc/hosts'
 alias repache='sudo service apache2 restart'
 alias c7='sudo chmod -fR 777 '
+alias cll='sudo chmod -R a+rwX '
 alias cl='clear'
 alias lah='ls -lah'
 alias composer='php /usr/bin/composer.phar'
 alias san='/opt/portable/artisan/san.sh'
+alias laradock='sudo /opt/portable/parts/laradock.sh'
 alias cup='composer update'
+
+#Docker
+alias dupp='docker-compose up'
+alias dup='docker-compose up -d --force-recreate'
+alias dupi='docker build --no-cache . ;docker-compose up --force-recreate'
+alias dop='docker kill $(docker ps -q)'
+alias down='sudo docker-compose down'
+alias dps='docker ps'
+alias dpp='docker system prune --all'
+
+
 # From http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
 export MARKPATH=$HOME/.marks
 function jump {
